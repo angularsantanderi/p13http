@@ -67,4 +67,14 @@ export class ClientesService {
                     )
   }
 
+  deleteClienteBy_id(_id) {
+    return this.http.delete(`${this.url}${_id}`)
+                    .pipe(
+                      map((resp: any) => {
+                        // podriamos si lo necesitáramos transformar la resp
+                        return resp;
+                      })
+                    )
+  }
+
 }

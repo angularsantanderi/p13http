@@ -57,8 +57,17 @@ export class TablaClientesComponent implements OnInit {
                                               })
                        }
                    })
-}
+  }
 
-
+  borrarCliente(_id: string): void {
+    this.clientesService.deleteClienteBy_id(_id)
+                        .subscribe({
+                          next: (resp: any) => {
+                                   this.clientes = [];
+                                   this.formSearch.get('search').patchValue('');
+                              },
+                          error: (err: any) => console.log(err)
+                      })       
+  }
 
 }

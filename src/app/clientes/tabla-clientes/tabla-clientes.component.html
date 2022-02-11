@@ -21,6 +21,8 @@
         <td>{{cliente.nombre}}</td>
         <td>{{cliente.localidad}}</td>
         <td routerLink="actualizar-cliente/{{cliente._id}}">Detalle</td>
+        <!-- Deberíamos picarlo con una ventana modal pero no da tiempo :) -->
+        <td (click)="borrarCliente(cliente._id)">Eliminar</td>
       </tr>
     </table>
   </div>
