@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { Cliente } from 'src/app/models/cliente.model';
 import { ClientesService } from 'src/app/servicios/clientes.service';
 
@@ -26,7 +27,7 @@ export class TablaClientesComponent implements OnInit {
 
   cargarClientes(): void {
     this.clientesService.getClientes()
-                        .subscribe((clientes: Array<Cliente>) => {
+                        .subscribe((clientes: Array<Cliente>) => { // En breve no se usará y se usará next, error
                           this.clientes = clientes;
                         }, (err: any) => {
                           console.log(err);
@@ -35,8 +36,12 @@ export class TablaClientesComponent implements OnInit {
 
   searchClientes() {
     this.formSearch.valueChanges
-                   .pipe()
+                   .pipe(
+                     debounceTime(400),
+                     distinctUntilChanged()
+                   )
                    .subscribe(data => {
+                       console.log(data)
                        this.spinner = true;
                        if(data.search.length === 0) {
                           this.spinner = false;

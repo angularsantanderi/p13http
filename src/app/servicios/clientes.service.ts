@@ -37,4 +37,14 @@ export class ClientesService {
                   )
   }
 
+  crearCliente(cliente: Cliente) {
+    return this.http.post(this.url, cliente)
+                    .pipe(
+                      map((resp: any) => {
+                        // podriamos si lo necesitáramos transformar la resp
+                        return resp;
+                      })
+                    )
+  }
+
 }
