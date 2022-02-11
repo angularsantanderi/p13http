@@ -1,1 +1,20 @@
-<p>tabla-clientes works!</p>
+<div class="card xl">
+    <div class="titles-row">
+      <h1>Clientes</h1>
+    </div>
+    <hr>
+
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Localidad</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let cliente of clientes">
+        <td>{{cliente.nombre}}</td>
+        <td>{{cliente.localidad}}</td>
+
+      </tr>
+    </table>
+  </div>

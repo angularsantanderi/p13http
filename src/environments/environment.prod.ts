@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlAPICLientesEndpoint: 'http://<ip-o-dominio-producción>/clientes/'
 };

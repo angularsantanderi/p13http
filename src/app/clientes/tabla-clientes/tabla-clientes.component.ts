@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientesService } from 'src/app/servicios/clientes.service';
 
 @Component({
   selector: 'app-tabla-clientes',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TablaClientesComponent implements OnInit {
 
-  constructor() { }
+  clientes: Array<any> = [];
+
+  constructor(private clientesService: ClientesService) { }
 
   ngOnInit(): void {
+    this.cargarClientes();
   }
+
+  cargarClientes(): void {
+    this.clientesService.getClientes()
+                        .subscribe((resp: any) => {
+                          this.clientes = resp.clientes;
+                        }, (err: any) => {
+                          console.log(err);
+                        })
+  }
+
+
 
 }
