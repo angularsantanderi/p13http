@@ -1,4 +1,5 @@
 export interface Cliente {
+    _id?: string,
     nombre: string;
     modalidad?: string;
     categoria?: string;

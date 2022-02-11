@@ -47,4 +47,24 @@ export class ClientesService {
                     )
   }
 
+  getClienteBy_id(_id) {
+    return this.http.get(`${this.url}${_id}`)
+                    .pipe(
+                      map((resp: any) => {
+                        // podriamos si lo necesitáramos transformar la resp
+                        return resp;
+                      })
+                    )
+  }
+
+  updateClienteBy_id(_id, cliente: Cliente) {
+    return this.http.put(`${this.url}${_id}`, cliente)
+                    .pipe(
+                      map((resp: any) => {
+                        // podriamos si lo necesitáramos transformar la resp
+                        return resp;
+                      })
+                    )
+  }
+
 }

@@ -1,0 +1,38 @@
+<div class="container show">
+    <div class="row">
+        <div class="col-100">
+            <form [formGroup]="formCliente" (ngSubmit)="actualizarCliente()">
+                <div class="row column">
+                    <label>
+                        Nombre
+                    </label>
+                    <input type="text" formControlName="nombre" [readonly]="!editar">
+                </div>
+                <div class="row column">
+                    <label>
+                        Actividades
+                    </label>
+                    <input type="text" formControlName="actividades" [readonly]="!editar">
+                </div>
+                <div class="row column">
+                    <label>
+                        Dirección
+                    </label>
+                    <input type="text" formControlName="direccion" [readonly]="!editar">
+                </div>
+                <div class="row column">
+                    <label>
+                        Localidad
+                    </label>
+                    <input type="text" formControlName="localidad" [readonly]="!editar">
+                </div>
+                <div class="flex j-end">
+                    <button type="button" class="outline" *ngIf="!editar" routerLink="/">Atras</button>
+                    <button type="button" class="outline" *ngIf="editar" (click)="toggleEditar()">Cancelar</button>
+                    <button type="button" class="m-l-small" *ngIf="!editar" (click)="toggleEditar()">Editar</button>
+                    <button type="submit" class="m-l-small" *ngIf="editar">Guardar cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

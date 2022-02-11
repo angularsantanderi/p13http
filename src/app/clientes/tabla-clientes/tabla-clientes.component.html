@@ -20,7 +20,7 @@
       <tr *ngFor="let cliente of clientes">
         <td>{{cliente.nombre}}</td>
         <td>{{cliente.localidad}}</td>
-
+        <td routerLink="actualizar-cliente/{{cliente._id}}">Detalle</td>
       </tr>
     </table>
   </div>
