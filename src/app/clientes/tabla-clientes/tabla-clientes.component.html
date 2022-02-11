@@ -3,8 +3,13 @@
       <h1>Clientes</h1>
     </div>
     <hr>
-
-    <table>
+    <div class="row">
+      <form [formGroup]="formSearch">
+          <input type="text" formControlName="search" placeholder="Nombre Cliente">
+      </form>
+    </div>
+    <p *ngIf="spinner">Esperando respuesta...</p>
+    <table *ngIf="!spinner">
       <tr>
         <th>Nombre</th>
         <th>Localidad</th>

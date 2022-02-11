@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { Cliente } from '../models/cliente.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +19,22 @@ export class ClientesService {
     return this.http.get(this.url)
                     .pipe(
                       map((resp: any) => {
+                        const clientes: Array<Cliente> = resp.clientes;
                         // podriamos si lo necesitáramos transformar la resp
-                        return resp;
+                        return clientes;
                       })
                     )
+  }
+
+  
+  searchClientes(term: string) {
+    return this.http.get(`${this.url}search/${term}`)
+                  .pipe(
+                    map((resp: any) => {
+                      // podriamos si lo necesitáramos transformar la resp
+                      return resp;
+                    })
+                  )
   }
 
 }
