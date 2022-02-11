@@ -27,7 +27,7 @@
                     <input type="text" formControlName="localidad">
                 </div>
                 <div class="flex j-end">
-                    <button type="button" class="outline" routerLink="/">Cancelar</button>
+                    <button type="button" class="outline" (click)="setLog('cancel')" routerLink="/">Cancelar</button>
                     <button type="submit" class="m-l-small">Añadir</button>
                 </div>
             </form>
